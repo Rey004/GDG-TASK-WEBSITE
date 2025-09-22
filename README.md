@@ -9,18 +9,25 @@ This website serves as the digital hub for the GDG RCOEM community, showcasing t
 ## Features
 
 ### Core Pages
-- **Home Page**: Complete landing page with hero section, mission statement, perspective, and drive content
+- **Home Page**: Complete landing page with modular sections (Hero, Get To Know, Mission, Perspective, Drive, Stats, Technologies, FAQ)
 - **Events**: Work-in-progress page for upcoming workshops, hackathons, and tech talks
 - **Team**: Work-in-progress page for member profiles and leadership showcase
 - **Alumni**: Work-in-progress page for alumni network and success stories
 - **Contact**: Work-in-progress page for contact forms and location information
 
+### Routing & Navigation
+- **React Router Integration**: Client-side routing for seamless page transitions
+- **Route Protection**: Proper route handling with 404 error page
+- **Navigation State**: Active route highlighting in navbar
+- **Browser History**: Back/forward button support with proper URL management
+
 ### Interactive Components
-- **Responsive Navigation**: Mobile-friendly navbar with hamburger menu
+- **Responsive Navigation**: Mobile-friendly navbar with hamburger menu and route-aware styling
 - **FAQ Section**: Expandable accordion-style frequently asked questions
 - **Statistics Display**: Animated circular progress indicators showing key metrics
 - **Technology Cards**: Interactive cards showcasing focus areas (Android, Flutter, Cloud)
-- **Theme Toggle**: Seamless dark/light mode switching
+- **Theme Toggle**: Seamless dark/light mode switching with localStorage persistence
+- **Modular Architecture**: Each page section is now a separate component for better maintainability
 
 ### Design System
 - **Google Material Design**: Consistent use of Google brand colors (#4285F4, #EA4335, #34A853, #FBBC05)
@@ -69,10 +76,154 @@ The dark mode system uses CSS custom properties (variables) for dynamic theme sw
 - **Smooth Transitions**: CSS transitions for seamless switching
 - **Accessibility**: Proper ARIA labels and keyboard navigation
 
-## Animation Implementation
+## Component Architecture & Routing
+
+### Modular Component Structure
+The home page has been refactored into a modular architecture where each section is a separate, reusable component:
+
+```
+src/pages/home_page/
+├── Home.jsx                 # Main container with GSAP animations & routing logic
+├── home.css                 # Base home page styles
+├── hero/
+│   ├── HeroSection.jsx      # Hero section with Google branding
+│   └── HeroSection.css      # Hero-specific styles
+├── get-to-know/
+│   ├── GetToKnowSection.jsx # Arrow navigation section
+│   └── GetToKnowSection.css # Arrow animations & styles
+├── mission/
+│   ├── MissionSection.jsx   # Mission statement with blue theme
+│   └── MissionSection.css   # Mission section styling
+├── perspective/
+│   ├── PerspectiveSection.jsx # Perspective content with green theme
+│   └── PerspectiveSection.css # Perspective section styling
+└── drive/
+    ├── DriveSection.jsx     # Drive/motivation content with yellow theme
+    └── DriveSection.css     # Drive section styling
+```
+
+### Routing Implementation
+
+#### React Router Setup
+```javascript
+// App.jsx - Main routing configuration
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+<Router>
+  <Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/events" element={<EventsPage />} />
+      <Route path="/team" element={<TeamPage />} />
+      <Route path="/alumni" element={<AlumniPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
+  </Layout>
+</Router>
+```
+
+#### Navigation Component Integration
+```javascript
+// Navbar with active route detection
+import { Link, useLocation } from 'react-router-dom'
+
+const Navbar = () => {
+  const location = useLocation()
+  
+  return (
+    <nav>
+      <Link 
+        to="/" 
+        className={location.pathname === '/' ? 'active' : ''}
+      >
+        Home
+      </Link>
+      {/* Additional navigation links */}
+    </nav>
+  )
+}
+```
+
+#### Route Features
+- **Client-Side Navigation**: No page reloads, instant transitions
+- **Active Route Highlighting**: Visual feedback for current page
+- **URL Management**: Proper browser history and bookmarking support
+- **404 Error Handling**: Custom error page for invalid routes
+- **Nested Routing**: Support for future sub-page implementations
+
+### Component Benefits
+- **Maintainability**: Each section can be edited independently
+- **Reusability**: Components can be used across different pages
+- **Performance**: Code splitting potential for larger applications
+- **Testing**: Individual components can be unit tested
+- **Collaboration**: Multiple developers can work on different sections
+- **Modularity**: Clean separation of concerns and styling
+
+### Ref Forwarding Architecture
+```javascript
+// Component with forwardRef for animation targeting
+const HeroSection = React.forwardRef((props, ref) => {
+  return (
+    <section className="hero-section" ref={ref}>
+      {/* Component content */}
+    </section>
+  )
+})
+
+// Usage in Home.jsx with GSAP animations
+const heroRef = useRef(null)
+<HeroSection ref={heroRef} />
+```
 
 ### GSAP Integration
 The website uses GSAP (GreenSock Animation Platform) with ScrollTrigger for professional, performant animations throughout the home page.
+
+### Mobile Animation Optimization
+The animation system includes specific optimizations for mobile devices to ensure animations are visible and performant:
+
+```javascript
+// Mobile-responsive trigger points
+const isMobile = window.innerWidth <= 768
+const mobileStartTrigger = isMobile ? "top 90%" : "top 80%"
+const mobileTitleTrigger = isMobile ? "top 85%" : "top 75%"
+
+// Reduced movement values for mobile
+gsap.fromTo(".mission-image", 
+  { opacity: 0, x: isMobile ? -10 : -20 },
+  {
+    opacity: 1,
+    x: 0,
+    scrollTrigger: {
+      trigger: ".mission-content",
+      start: mobileStartTrigger  // Later trigger on mobile
+    }
+  }
+)
+```
+
+### Animation with Component Architecture
+Animations are maintained in the main `Home.jsx` file using class selectors, while components maintain their isolated styling:
+
+```javascript
+// Home.jsx - Animation logic
+useEffect(() => {
+  const ctx = gsap.context(() => {
+    // Animations target component classes
+    gsap.fromTo(".hero-title", {...})
+    gsap.fromTo(".mission-content", {...})
+  }, homeRef)
+  
+  return () => ctx.revert() // Cleanup
+}, [])
+
+// HeroSection.jsx - Component structure
+const HeroSection = React.forwardRef((props, ref) => (
+  <section className="hero-section" ref={ref}>
+    <h1 className="hero-title">{/* Animated element */}</h1>
+  </section>
+))
+```
 
 ### Animation Architecture
 ```javascript
@@ -241,25 +392,39 @@ gsap.to(".mission-blue-bar", {
 ```
 src/
 ├── components/
-│   ├── navbar/              # Navigation component
+│   ├── navbar/              # Navigation with routing integration
 │   ├── faq/                 # FAQ accordion component
 │   ├── footer/              # Footer with social links
 │   ├── stats_circle/        # Statistics display components
 │   ├── technologies/        # Technology showcase section
 │   ├── tech_card/          # Individual technology cards
-│   └── WorkInProgress/     # Reusable WIP component
+│   └── WorkInProgress/     # Reusable WIP component for placeholder pages
 ├── pages/
-│   ├── home_page/          # Main landing page
-│   ├── events_page/        # Events page (WIP)
-│   ├── team_page/          # Team page (WIP)
-│   ├── alumni_page/        # Alumni page (WIP)
-│   ├── contact_page/       # Contact page (WIP)
-│   └── error_page/         # Custom 404 page
+│   ├── home_page/          # Main landing page (modular architecture)
+│   │   ├── Home.jsx        # Container with GSAP animations & refs
+│   │   ├── home.css        # Base home page styles
+│   │   ├── hero/           # Hero section component
+│   │   ├── get-to-know/    # Get to know section component
+│   │   ├── mission/        # Mission section component
+│   │   ├── perspective/    # Perspective section component
+│   │   └── drive/          # Drive section component
+│   ├── events_page/        # Events page (WIP with routing)
+│   ├── team_page/          # Team page (WIP with routing)
+│   ├── alumni_page/        # Alumni page (WIP with routing)
+│   ├── contact_page/       # Contact page (WIP with routing)
+│   └── error_page/         # Custom 404 page for invalid routes
 ├── layout/
-│   └── Layout.jsx          # Main layout wrapper
-├── App.jsx                 # Root component with routing
+│   └── Layout.jsx          # Main layout wrapper with router outlet
+├── App.jsx                 # Root component with React Router setup
 └── index.css              # Global styles and CSS variables
 ```
+
+### Routing Structure
+- **BrowserRouter**: Main router wrapper for client-side navigation
+- **Routes & Route**: Route definitions with component mapping
+- **Layout Component**: Persistent layout with navbar and footer
+- **Error Boundary**: 404 handling for undefined routes
+- **Navigation State**: Active route tracking and highlighting
 
 ## Responsive Design
 
@@ -296,10 +461,17 @@ npm run build
 ```
 
 ### Dependencies
-- **React & React DOM**: Core framework
-- **React Router DOM**: Client-side routing
-- **GSAP**: Animation library for smooth, professional animations
-- **Vite**: Build tool and development server
+- **React & React DOM**: Core framework (v18+)
+- **React Router DOM**: Client-side routing and navigation management
+- **GSAP**: Animation library for smooth, professional animations with ScrollTrigger
+- **Vite**: Build tool and development server with hot module replacement
+
+### Development Features
+- **Component Modularity**: Each page section is isolated for better maintainability
+- **Animation System**: GSAP with mobile optimization and ref forwarding
+- **Routing Integration**: React Router with active state management
+- **Theme System**: CSS custom properties with localStorage persistence
+- **Error Handling**: Custom 404 page and route protection
 
 ## Browser Support
 

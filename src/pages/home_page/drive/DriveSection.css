@@ -1,0 +1,161 @@
+/* Drive Section */
+.drive-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.drive-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.drive-divider {
+    width: 190px;
+    height: 4px;
+    background-color: #FBBC05;
+    margin: 1rem auto 4rem;
+    border-radius: 2px;
+}
+
+.drive-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.drive-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.drive-image img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.drive-text-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1.5rem;
+}
+
+.drive-text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    text-align: right;
+}
+
+.drive-yellow-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -20px;
+    width: 12px;
+    background-color: #FBBC05;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .drive-title {
+        font-size: 3rem;
+    }
+    
+    .drive-divider {
+        width: 160px;
+        margin: 1rem auto 3rem;
+    }
+    
+    .drive-text {
+        font-size: 1.4rem;
+    }
+    
+    .drive-section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .drive-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .drive-image,
+    .drive-text-container {
+        max-width: 100%;
+    }
+    
+    .drive-text {
+        text-align: center;
+    }
+    
+    .drive-yellow-bar {
+        display: none;
+    }
+    
+    .drive-title {
+        font-size: 2.5rem;
+    }
+    
+    .drive-divider {
+        width: 140px;
+        margin: 0.75rem auto 2.5rem;
+    }
+    
+    .drive-text {
+        font-size: 1.3rem;
+    }
+    
+    .drive-section {
+        padding: 3rem 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .drive-content {
+        gap: 1.5rem;
+    }
+    
+    .drive-title {
+        font-size: 2rem;
+    }
+    
+    .drive-divider {
+        width: 120px;
+        height: 3px;
+        margin: 0.5rem auto 2rem;
+    }
+    
+    .drive-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+    
+    .drive-section {
+        padding: 2.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .drive-title {
+        font-size: 1.8rem;
+    }
+    
+    .drive-text {
+        font-size: 1rem;
+    }
+}

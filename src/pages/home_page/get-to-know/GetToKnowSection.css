@@ -1,0 +1,108 @@
+/* Get To Know Us section */
+.get-to-know-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0 4rem;
+    text-align: center;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.get-to-know-title {
+    color: var(--secondary-text-color);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: 4.5rem;
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: rem;
+}
+
+.arrow1 {
+    width: 35px;
+    height: 35px;
+    margin: 3px 0;
+    border: 2px solid #c3c3c3;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.arrow2 {
+    width: 35px;
+    height: 35px;
+    margin: 3px 0;
+    border: 2px solid #7a7a7a;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.arrow3 {
+    width: 35px;
+    height: 35px;
+    margin: 3px 0;
+    border: 2px solid #4b4b4b;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .get-to-know-title {
+        font-size: 2.5rem;
+    }
+    
+    .arrow1, .arrow2, .arrow3 {
+        width: 30px;
+        height: 30px;
+        border-width: 0 7px 7px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .get-to-know-section {
+        padding: 1.5rem 0 3rem;
+    }
+    
+    .get-to-know-title {
+        font-size: 2.2rem;
+    }
+    
+    .arrow1, .arrow2, .arrow3 {
+        width: 25px;
+        height: 25px;
+        border-width: 0 6px 6px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .get-to-know-section {
+        padding: 1rem 0 2.5rem;
+    }
+    
+    .get-to-know-title {
+        font-size: 1.8rem;
+    }
+    
+    .arrow1, .arrow2, .arrow3 {
+        width: 20px;
+        height: 20px;
+        border-width: 0 5px 5px 0;
+        margin: 2px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .get-to-know-title {
+        font-size: 1.6rem;
+    }
+}

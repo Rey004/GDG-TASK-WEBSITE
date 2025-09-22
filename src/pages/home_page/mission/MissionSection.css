@@ -1,0 +1,160 @@
+/* Mission Section */
+.mission-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.mission-divider {
+    width: 190px;
+    height: 4px;
+    background-color: #4285F4;
+    margin: 1rem auto 4rem;
+    border-radius: 2px;
+}
+
+.mission-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.mission-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.mission-image img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.mission-text-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.mission-text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    text-align: right;
+}
+
+.mission-blue-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -20px;
+    width: 12px;
+    background-color: #4285F4;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .mission-title {
+        font-size: 3rem;
+    }
+    
+    .mission-divider {
+        width: 160px;
+        margin: 1rem auto 3rem;
+    }
+    
+    .mission-text {
+        font-size: 1.4rem;
+    }
+    
+    .mission-section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mission-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .mission-image,
+    .mission-text-container {
+        max-width: 100%;
+    }
+    
+    .mission-text {
+        text-align: center;
+    }
+    
+    .mission-blue-bar {
+        display: none;
+    }
+    
+    .mission-title {
+        font-size: 2.5rem;
+    }
+    
+    .mission-divider {
+        width: 140px;
+        margin: 0.75rem auto 2.5rem;
+    }
+    
+    .mission-text {
+        font-size: 1.3rem;
+    }
+    
+    .mission-section {
+        padding: 3rem 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .mission-content {
+        gap: 1.5rem;
+    }
+    
+    .mission-title {
+        font-size: 2rem;
+    }
+    
+    .mission-divider {
+        width: 120px;
+        height: 3px;
+        margin: 0.5rem auto 2rem;
+    }
+    
+    .mission-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+    
+    .mission-section {
+        padding: 2.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-title {
+        font-size: 1.8rem;
+    }
+    
+    .mission-text {
+        font-size: 1rem;
+    }
+}
