@@ -22,6 +22,11 @@ const Home = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Check if device is mobile for different trigger points
+      const isMobile = window.innerWidth <= 768
+      const mobileStartTrigger = isMobile ? "top 90%" : "top 80%"
+      const mobileTitleTrigger = isMobile ? "top 85%" : "top 75%"
+
       // Hero Section - Simple fade in sequence
       gsap.fromTo(".hero-title", 
         { opacity: 0, y: 20 },
@@ -66,7 +71,7 @@ const Home = () => {
         }
       )
 
-      // Get To Know Section - Minimal fade in
+      // Get To Know Section - Minimal fade in with mobile optimization
       gsap.fromTo([".arrow1", ".arrow2", ".arrow3"], 
         { opacity: 0, y: 10 },
         {
@@ -77,7 +82,8 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: getToKnowRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger,
+            markers: false // Set to true for debugging
           }
         }
       )
@@ -91,12 +97,12 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: getToKnowRef.current,
-            start: "top 75%"
+            start: mobileTitleTrigger
           }
         }
       )
 
-      // Mission Section - Clean slide up
+      // Mission Section - Clean slide up with mobile optimization
       gsap.fromTo(".mission-title", 
         { opacity: 0, y: 20 },
         {
@@ -106,7 +112,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: missionRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
@@ -120,13 +126,13 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: missionRef.current,
-            start: "top 75%"
+            start: mobileTitleTrigger
           }
         }
       )
 
       gsap.fromTo(".mission-image", 
-        { opacity: 0, x: -20 },
+        { opacity: 0, x: isMobile ? -10 : -20 },
         {
           opacity: 1,
           x: 0,
@@ -134,13 +140,13 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".mission-content",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
       gsap.fromTo(".mission-text-container", 
-        { opacity: 0, x: 20 },
+        { opacity: 0, x: isMobile ? 10 : 20 },
         {
           opacity: 1,
           x: 0,
@@ -148,12 +154,12 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".mission-content",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
-      // Perspective Section
+      // Perspective Section with mobile optimization
       gsap.fromTo(".perspective-title", 
         { opacity: 0, y: 20 },
         {
@@ -163,7 +169,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: perspectiveRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
@@ -177,13 +183,13 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: perspectiveRef.current,
-            start: "top 75%"
+            start: mobileTitleTrigger
           }
         }
       )
 
       gsap.fromTo(".perspective-text-container", 
-        { opacity: 0, x: -20 },
+        { opacity: 0, x: isMobile ? -10 : -20 },
         {
           opacity: 1,
           x: 0,
@@ -191,13 +197,13 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".perspective-content",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
       gsap.fromTo(".perspective-image", 
-        { opacity: 0, x: 20 },
+        { opacity: 0, x: isMobile ? 10 : 20 },
         {
           opacity: 1,
           x: 0,
@@ -205,12 +211,12 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".perspective-content",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
-      // Drive Section
+      // Drive Section with mobile optimization
       gsap.fromTo(".drive-title", 
         { opacity: 0, y: 20 },
         {
@@ -220,7 +226,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: driveRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
@@ -234,13 +240,13 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: driveRef.current,
-            start: "top 75%"
+            start: mobileTitleTrigger
           }
         }
       )
 
       gsap.fromTo(".drive-image", 
-        { opacity: 0, x: -20 },
+        { opacity: 0, x: isMobile ? -10 : -20 },
         {
           opacity: 1,
           x: 0,
@@ -248,13 +254,13 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".drive-content",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
       gsap.fromTo(".drive-text-container", 
-        { opacity: 0, x: 20 },
+        { opacity: 0, x: isMobile ? 10 : 20 },
         {
           opacity: 1,
           x: 0,
@@ -262,12 +268,12 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".drive-content",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
-      // Stats Section Animation
+      // Stats Section Animation with mobile optimization
       gsap.fromTo(".stats-section", 
         { opacity: 0, y: 30 },
         {
@@ -277,7 +283,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: statsRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
@@ -290,16 +296,16 @@ const Home = () => {
           y: 0,
           scale: 1,
           duration: 0.6,
-          stagger: 0.15,
+          stagger: isMobile ? 0.2 : 0.15,
           ease: "power2.out",
           scrollTrigger: {
             trigger: statsRef.current,
-            start: "top 70%"
+            start: isMobile ? "top 85%" : "top 70%"
           }
         }
       )
 
-      // Technologies Section Animation
+      // Technologies Section Animation with mobile optimization
       gsap.fromTo(".technologies-header", 
         { opacity: 0, y: 20 },
         {
@@ -309,7 +315,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: techRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
@@ -324,7 +330,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: techRef.current,
-            start: "top 75%"
+            start: mobileTitleTrigger
           }
         }
       )
@@ -337,16 +343,16 @@ const Home = () => {
           y: 0,
           scale: 1,
           duration: 0.6,
-          stagger: 0.2,
+          stagger: isMobile ? 0.25 : 0.2,
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".tech-cards-container",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
-      // FAQ Section Animation
+      // FAQ Section Animation with mobile optimization
       gsap.fromTo(".faq-section .section-title", 
         { opacity: 0, y: 20 },
         {
@@ -356,7 +362,7 @@ const Home = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: faqRef.current,
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
@@ -368,45 +374,58 @@ const Home = () => {
           opacity: 1,
           y: 0,
           duration: 0.5,
-          stagger: 0.1,
+          stagger: isMobile ? 0.15 : 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".faq-list",
-            start: "top 80%"
+            start: mobileStartTrigger
           }
         }
       )
 
-      // Subtle parallax for color bars (minimal movement)
-      gsap.to(".mission-blue-bar", {
-        y: -5,
-        scrollTrigger: {
-          trigger: ".mission-blue-bar",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 2
-        }
-      })
+      // Subtle parallax for color bars (minimal movement) - disabled on mobile for performance
+      if (!isMobile) {
+        gsap.to(".mission-blue-bar", {
+          y: -5,
+          scrollTrigger: {
+            trigger: ".mission-blue-bar",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 2
+          }
+        })
 
-      gsap.to(".perspective-green-bar", {
-        y: -5,
-        scrollTrigger: {
-          trigger: ".perspective-green-bar",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 2
-        }
-      })
+        gsap.to(".perspective-green-bar", {
+          y: -5,
+          scrollTrigger: {
+            trigger: ".perspective-green-bar",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 2
+          }
+        })
 
-      gsap.to(".drive-yellow-bar", {
-        y: -5,
-        scrollTrigger: {
-          trigger: ".drive-yellow-bar",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 2
-        }
-      })
+        gsap.to(".drive-yellow-bar", {
+          y: -5,
+          scrollTrigger: {
+            trigger: ".drive-yellow-bar",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 2
+          }
+        })
+      }
+
+      // Add window resize listener to update triggers if orientation changes
+      const handleResize = () => {
+        ScrollTrigger.refresh()
+      }
+
+      window.addEventListener('resize', handleResize)
+      
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
 
     }, homeRef)
 
