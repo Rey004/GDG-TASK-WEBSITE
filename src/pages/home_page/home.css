@@ -1,0 +1,623 @@
+/* Home page styles */
+.home-page {
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hero section styles */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: color 0.3s ease;
+}
+
+.hero-title {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 4.5rem;
+}
+
+.hero-title .blue {
+    color: #4285F4;
+}
+
+.hero-title .red {
+    color: #EA4335;
+}
+
+.hero-title .yellow {
+    color: #FBBC05;
+}
+
+.hero-title .green {
+    color: #34A853;
+}
+
+.hero-title .black {
+    color: var(--text-color);
+}
+
+.hero-title .chapter {
+    display: block;
+    color: var(--secondary-text-color);
+    font-weight: var(--font-regular);
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.hero-image {
+    margin: 3rem 0;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-description {
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+}
+
+.join-button {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.join-button:hover {
+    background-color: #3367d6;
+}
+
+/* Get To Know Us section */
+.get-to-know-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0 4rem;
+    text-align: center;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.get-to-know-title {
+    color: var(--secondary-text-color);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: rem;
+}
+
+.arrow1 {
+    width: 35px;
+    height: 35px;
+    margin: 3px 0;
+    border: 2px solid #c3c3c3;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.arrow2 {
+    width: 35px;
+    height: 35px;
+    margin: 3px 0;
+    border: 2px solid #7a7a7a;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.arrow3 {
+    width: 35px;
+    height: 35px;
+    margin: 3px 0;
+    border: 2px solid #4b4b4b;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.mission-divider {
+    width: 190px;
+    height: 4px;
+    background-color: #4285F4;
+    margin: 1rem auto 4rem;
+    border-radius: 2px;
+}
+
+.mission-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.mission-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.mission-image img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.mission-text-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.mission-text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    text-align: right;
+}
+
+.mission-blue-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -20px;
+    width: 12px;
+    background-color: #4285F4;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Perspective Section */
+.perspective-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.perspective-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.perspective-divider {
+    width: 190px;
+    height: 4px;
+    background-color: #34A853;
+    margin: 1rem auto 4rem;
+    border-radius: 2px;
+}
+
+.perspective-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.perspective-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.perspective-image img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.perspective-text-container {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.perspective-text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    text-align: left;
+    padding-left: 20px;
+}
+
+.perspective-green-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20px;
+    width: 12px;
+    background-color: #34A853;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Drive Section */
+.drive-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.drive-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.drive-divider {
+    width: 190px;
+    height: 4px;
+    background-color: #FBBC05;
+    margin: 1rem auto 4rem;
+    border-radius: 2px;
+}
+
+.drive-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.drive-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.drive-image img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.drive-text-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1.5rem;
+}
+
+.drive-text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    text-align: right;
+}
+
+.drive-yellow-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -20px;
+    width: 12px;
+    background-color: #FBBC05;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-title .chapter {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.8rem;
+    }
+    
+    .join-button {
+        padding: 0.9rem 2.5rem;
+        font-size: 1.3rem;
+    }
+    
+    .get-to-know-title {
+        font-size: 2.5rem;
+    }
+    
+    .mission-title,
+    .perspective-title,
+    .drive-title {
+        font-size: 3rem;
+    }
+    
+    .mission-divider,
+    .perspective-divider,
+    .drive-divider {
+        width: 160px;
+        margin: 1rem auto 3rem;
+    }
+    
+    .mission-text,
+    .perspective-text,
+    .drive-text {
+        font-size: 1.4rem;
+    }
+    
+    .mission-section,
+    .perspective-section,
+    .drive-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .arrow1, .arrow2, .arrow3 {
+        width: 30px;
+        height: 30px;
+        border-width: 0 7px 7px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1.25rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title .chapter {
+        font-size: 1.6rem;
+    }
+    
+    .hero-description {
+        font-size: 1.4rem;
+    }
+    
+    .join-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .get-to-know-section {
+        padding: 1.5rem 0 3rem;
+    }
+    
+    .get-to-know-title {
+        font-size: 2.2rem;
+    }
+    
+    .mission-content,
+    .perspective-content,
+    .drive-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .mission-image,
+    .perspective-image,
+    .drive-image,
+    .mission-text-container,
+    .perspective-text-container,
+    .drive-text-container {
+        max-width: 100%;
+    }
+    
+    .mission-text,
+    .drive-text {
+        text-align: center;
+    }
+    
+    .perspective-text {
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .mission-blue-bar,
+    .perspective-green-bar,
+    .drive-yellow-bar {
+        display: none;
+    }
+    
+    .mission-title,
+    .perspective-title,
+    .drive-title {
+        font-size: 2.5rem;
+    }
+    
+    .mission-divider,
+    .perspective-divider,
+    .drive-divider {
+        width: 140px;
+        margin: 0.75rem auto 2.5rem;
+    }
+    
+    .mission-text,
+    .perspective-text,
+    .drive-text {
+        font-size: 1.3rem;
+    }
+    
+    .mission-section,
+    .perspective-section,
+    .drive-section {
+        padding: 3rem 1.25rem;
+    }
+    
+    .arrow1, .arrow2, .arrow3 {
+        width: 25px;
+        height: 25px;
+        border-width: 0 6px 6px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title .chapter {
+        font-size: 1.3rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+        margin: 0.75rem auto 1.5rem;
+    }
+    
+    .join-button {
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .get-to-know-section {
+        padding: 1rem 0 2.5rem;
+    }
+    
+    .get-to-know-title {
+        font-size: 1.8rem;
+    }
+    
+    .mission-content,
+    .perspective-content,
+    .drive-content {
+        gap: 1.5rem;
+    }
+    
+    .mission-title,
+    .perspective-title,
+    .drive-title {
+        font-size: 2rem;
+    }
+    
+    .mission-divider,
+    .perspective-divider,
+    .drive-divider {
+        width: 120px;
+        height: 3px;
+        margin: 0.5rem auto 2rem;
+    }
+    
+    .mission-text,
+    .perspective-text,
+    .drive-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+    
+    .mission-section,
+    .perspective-section,
+    .drive-section {
+        padding: 2.5rem 1rem;
+    }
+    
+    .arrow1, .arrow2, .arrow3 {
+        width: 20px;
+        height: 20px;
+        border-width: 0 5px 5px 0;
+        margin: 2px 0;
+    }
+    
+    .hero-image {
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-title .chapter {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .join-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .mission-title,
+    .perspective-title,
+    .drive-title {
+        font-size: 1.8rem;
+    }
+    
+    .mission-text,
+    .perspective-text,
+    .drive-text {
+        font-size: 1rem;
+    }
+    
+    .get-to-know-title {
+        font-size: 1.6rem;
+    }
+}

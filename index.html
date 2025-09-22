@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GDG Task</title>
+    <!-- Apply theme immediately to avoid flickering -->
+    <script>
+      // Apply saved theme immediately before any rendering
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.body.setAttribute('data-theme', 'dark'); // Also set on body
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

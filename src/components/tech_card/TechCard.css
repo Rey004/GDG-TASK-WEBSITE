@@ -1,0 +1,95 @@
+.tech-card {
+  width: 300px;
+  height: 280px;
+  border-radius: 12px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tech-card-header {
+  height: 8px;
+  width: 100%;
+}
+
+.tech-card-header.red {
+  background-color: #EA4335;
+}
+
+.tech-card-header.blue {
+  background-color: #4285F4;
+}
+
+.tech-card-header.green {
+  background-color: #34A853;
+}
+
+.tech-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  height: calc(100% - 8px);
+}
+
+.tech-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
+
+.tech-name {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.expand-icon {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .tech-card {
+    width: 250px;
+    height: 240px;
+  }
+  
+  .tech-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .tech-name {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .tech-card {
+    width: 90%;
+    max-width: 250px;
+    height: 220px;
+  }
+  
+  .tech-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .tech-name {
+    font-size: 1.5rem;
+  }
+}
