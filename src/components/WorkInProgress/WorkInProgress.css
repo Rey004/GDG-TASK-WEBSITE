@@ -1,0 +1,335 @@
+/* Work in Progress page styles */
+.wip-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.wip-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.wip-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.wip-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.wip-divider {
+    width: 120px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 1rem auto;
+}
+
+.wip-description {
+    font-size: 1.4rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.wip-timeline {
+    background-color: var(--section-bg-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    border: 1px solid var(--divider-color);
+}
+
+.timeline-label {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    font-weight: 500;
+}
+
+.timeline-date {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.wip-illustration {
+    margin: 2rem 0;
+    opacity: 0.9;
+}
+
+.wip-features {
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem 0;
+    transition: background-color 0.3s ease;
+}
+
+.features-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 1.5rem 0;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    font-weight: 500;
+}
+
+.wip-actions {
+    margin: 2rem 0 1rem;
+}
+
+.btn-primary {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background-color: #3367d6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.wip-notification {
+    background-color: var(--section-bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #4285F4;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.wip-notification p {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+}
+
+.notify-link {
+    color: #4285F4;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.notify-link:hover {
+    color: #3367d6;
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .wip-title {
+        font-size: 3rem;
+    }
+    
+    .wip-description {
+        font-size: 1.3rem;
+    }
+    
+    .wip-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+    
+    .btn-primary {
+        padding: 0.9rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wip-page {
+        padding: 1.5rem;
+    }
+    
+    .wip-title {
+        font-size: 2.5rem;
+    }
+    
+    .wip-description {
+        font-size: 1.2rem;
+    }
+    
+    .wip-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .wip-features {
+        padding: 1.5rem;
+    }
+    
+    .features-title {
+        font-size: 1.2rem;
+    }
+    
+    .feature-item {
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .wip-illustration svg {
+        width: 250px;
+        height: 166px;
+    }
+}
+
+@media (max-width: 576px) {
+    .wip-container {
+        gap: 1rem;
+    }
+    
+    .wip-title {
+        font-size: 2rem;
+    }
+    
+    .wip-description {
+        font-size: 1.1rem;
+    }
+    
+    .wip-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+    
+    .wip-divider {
+        width: 100px;
+        height: 3px;
+    }
+    
+    .wip-features {
+        padding: 1.25rem;
+    }
+    
+    .features-title {
+        font-size: 1.1rem;
+    }
+    
+    .feature-item {
+        font-size: 0.95rem;
+    }
+    
+    .timeline-label {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-date {
+        font-size: 1.1rem;
+    }
+    
+    .wip-notification {
+        padding: 1.25rem;
+    }
+    
+    .wip-notification p {
+        font-size: 0.95rem;
+    }
+    
+    .notify-link {
+        font-size: 1rem;
+    }
+    
+    .btn-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .wip-illustration svg {
+        width: 200px;
+        height: 133px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wip-title {
+        font-size: 1.8rem;
+    }
+    
+    .wip-description {
+        font-size: 1rem;
+    }
+    
+    .timeline-date {
+        font-size: 1rem;
+    }
+}
