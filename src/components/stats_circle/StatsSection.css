@@ -3,6 +3,7 @@
   background-color: var(--bg-color);
   width: 100%;
   transition: background-color 0.3s ease;
+  margin: 5rem 0;
 }
 
 .stats-container {

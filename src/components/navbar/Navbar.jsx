@@ -8,14 +8,9 @@ const Navbar = () => {
     
     // Use a simpler approach with direct DOM manipulation
     const [darkMode, setDarkMode] = useState(document.body.hasAttribute('data-theme'));
-    
-    // Debug message
-    console.log('Navbar rendering, darkMode:', darkMode);
 
     // Function to directly toggle the theme
     const toggleDarkMode = () => {
-        console.log('Toggle button clicked');
-        
         // Get the current state
         const isDark = document.body.hasAttribute('data-theme');
         
@@ -25,21 +20,18 @@ const Navbar = () => {
             document.body.removeAttribute('data-theme');
             localStorage.setItem('theme', 'light');
             setDarkMode(false);
-            console.log('Switched to light mode');
         } else {
             // Switch to dark mode
             document.documentElement.setAttribute('data-theme', 'dark');
             document.body.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
             setDarkMode(true);
-            console.log('Switched to dark mode');
         }
     };
     
     // Initialize theme on component mount
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
-        console.log('Initializing theme from localStorage:', savedTheme);
         if (savedTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             document.body.setAttribute('data-theme', 'dark');

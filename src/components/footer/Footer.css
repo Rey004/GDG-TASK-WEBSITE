@@ -94,6 +94,11 @@
   justify-content: center;
 }
 
+.contact-svg {
+  stroke: var(--text-color);
+  transition: stroke 0.3s ease;
+}
+
 .contact-text {
   font-size: 1.1rem;
   color: var(--text-color);
@@ -135,15 +140,24 @@
   width: 32px;
   height: 32px;
   transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-icon:hover {
   transform: translateY(-5px);
 }
 
-.social-icon img {
+.social-svg {
   width: 100%;
   height: 100%;
+  fill: var(--text-color);
+  transition: fill 0.3s ease;
+}
+
+.social-icon:hover .social-svg {
+  fill: #4285F4;
 }
 
 .footer-pattern {
@@ -240,9 +254,5 @@
   
   .contact-item {
     margin-bottom: 0.5rem;
-  }
-  
-  .footer-pattern {
-    /* max-height: 30px; */
   }
 }
